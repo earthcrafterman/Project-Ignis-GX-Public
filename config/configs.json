@@ -1,0 +1,21 @@
+{
+	"repos": [
+	],
+	"urls": [
+		{
+			"url": "default",
+			"type": "pic"
+		},
+		{
+			"url": "default",
+			"type": "field"
+		},
+		{
+			"url": "default",
+			"type": "cover"
+		}
+	],
+	"servers": [
+	],
+	"posixPathExtension": "/usr/local/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+}
