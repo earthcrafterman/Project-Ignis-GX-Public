@@ -7,6 +7,7 @@ function s.initial_effect(c)
 	e1:SetCategory(CATEGORY_SPECIAL_SUMMON+CATEGORY_FUSION_SUMMON)
 	e1:SetType(EFFECT_TYPE_ACTIVATE)
 	e1:SetCode(EVENT_FREE_CHAIN)
+	e1:SetCondition(s.condition)
 	e1:SetOperation(s.activate)
 	c:RegisterEffect(e1)
 end
@@ -18,6 +19,9 @@ end
 function s.filter2(c,lv,e,tp,mc)
 	return c:IsType(TYPE_FUSION) and c:GetLevel()==lv and Duel.GetLocationCountFromEx(tp,tp,mc,c)>0 and
 		c:IsCanBeSpecialSummoned(e,0,tp,false,false) and aux.IsCodeListed(c,id)
+end
+function s.condition(e,tp,eg,ep,ev,re,r,rp)
+	return Duel.IsExistingMatchingCard(s.filter1,tp,LOCATION_MZONE,0,1,nil,e,tp)
 end
 function s.activate(e,tp,eg,ep,ev,re,r,rp)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_SPSUMMON)
